@@ -1,9 +1,9 @@
-defmodule Jokenpo.MixProject do
+defmodule JokenpoServer.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :jokenpo,
+      app: :jokenpo_server,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -19,13 +19,15 @@ defmodule Jokenpo.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Jokenpo.Application, []}
+      mod: {JokenpoServer.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:jokenpo, in_umbrella: true},
+      {:elixir_uuid, "~> 1.2"},
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false}
     ]
   end
